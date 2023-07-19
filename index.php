@@ -3,7 +3,7 @@
 require __DIR__ . '/includes/functions.php';
 
 if ($_GET['length']) {
-    generate_password($_GET['length']);
+    generate_password($_GET['length'], $_GET['multiple-characters']);
     header('Location: result.php');
 }
 
@@ -28,7 +28,10 @@ if ($_GET['length']) {
 
         <form action="">
             <label for="length">Lunghezza password: </label>
-            <input type="number" min="5" max="100" id="length" name="length">
+            <input type="number" min="5" max="50" id="length" name="length"><br><br>
+
+            <label for="multiple-characters">Consenti la ripetizione di caratteri: </label>
+            <input type="checkbox" id="multiple-characters" name="multiple-characters"><br><br>
 
             <button type="submit">Genera</button>
         </form>

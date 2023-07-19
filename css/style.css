@@ -43,7 +43,6 @@ form {
 }
 
 form > button {
-  margin-left: 50px;
   border: none;
   background-color: powderblue;
   padding: 10px;
