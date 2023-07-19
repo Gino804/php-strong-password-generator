@@ -1,16 +1,10 @@
 <?php
 
-function getRandomString($length)
-{
-    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!$%&/()=?^+-_.,;:@#';
-    $string = '';
+require __DIR__ . '/includes/functions.php';
 
-    for ($i = 0; $i < $length; $i++) {
-        $index = rand(0, strlen($characters) - 1);
-        $string .= $characters[$index];
-    }
-
-    return $string;
+if ($_GET['length']) {
+    generate_password($_GET['length']);
+    header('Location: result.php');
 }
 
 ?>
@@ -31,12 +25,6 @@ function getRandomString($length)
 <body>
     <div class="container">
         <h1>Strong Password Generator</h1>
-
-        <?php if ($_GET['length']) : ?>
-            <div class="alert">
-                Password generata: <?= getRandomString($_GET['length']) ?>
-            </div>
-        <?php endif ?>
 
         <form action="">
             <label for="length">Lunghezza password: </label>
